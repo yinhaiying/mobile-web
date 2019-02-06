@@ -159,3 +159,57 @@ only:指定某种特定的媒体类型。
 这两个伪类在桌面环境中一直存在，但是被失败地移植到了触屏上。
 不过，我们仍然可以放心地使用它，因为最坏情况也不过是他们无法
 正常工作，不会出现其他后果。
+
+
+##移动端开发流程及其注意事项：
+
+###移动端开发注意事项：
+
+1、设置动态像素比：是为了将设计稿尺寸于设备实现1:1还原。
+```
+   var pixelRatio = 1/window.devicePixelRatio;
+   document.write('<meta name="viewport" content = "width=device-width,initial-scale='+pixelRatio+',minimum-scale='+pixelRatio+',maximum-scale='+pixelRatio+'"/>')
+```
+		
+
+2.动态设置html字体大小,实现rem布局。是为了让布局在任何设备下都是以相同的百分比展示
+```
+   var html =document.getElementsByTagName('html')[0];
+   var page = html.getBoundingClientRect().width;
+   html.style.fontSize = page/16 +'px';
+   
+```
+  
+3.大致框架设计：也就是头部固定。
+```
+	html {
+	  height: 100%;
+	  overflow: hidden;
+	}
+	body {
+	  height: 100%;
+	  overflow: auto;
+	}
+
+```
+4.图片的伸缩。我们虽然解决了布局随设备发生变化。但是图片的大小是固定的。如果不进行设置，那么默认是原始大小。
+    我们必须保证图片也随设备大小变化而变化。通过设置background-size:xxrem。将图片的大小也设置成rem相关。
+```
+图片作为背景图片时，设置背景尺寸
+background:url()
+background-size: 0.825rem 1.375rem;
+图片直接作为标签时，设置width:100%或者具体的width和hight。图片的width或者Height只要有一个设置了百分比，那么就会等比缩放。
+width:100%;或者
+width:xx/@rem;height:xx/@rem
+```
+5.固定定位元素中，如果有input元素，那么触发键盘之后，会导致固定定位错位。
+  解决办法1：改变固定定位，使用绝对定位代替固定定位
+  解决办法2：不使用input标签，而是使用div去模拟。  
+
+6.关于字体，由于移动端和PC端字体显示有差异，因此，需要找到能够在PC端和移动端都显示的字体列表。
+当不能进行显示时，能够切换到合适的字体。可以直接参考淘宝等网站。
+```
+font-family: Arial,Helvetica,STHeiTi,sans-serif;
+```
+7.碰到文字，一定要测量行高，不然会不准确。
+
