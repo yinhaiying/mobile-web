@@ -59,10 +59,55 @@ screen.width/height:返回理想视口的尺寸。(几乎不被支持,基本不�
 这里有很多的重要知识点：
 0.媒体查询使用@media 关键字
 1. 所有的媒体查询都需要媒体类型，通常使用all是最好的。
-2. and是逻辑运算符与&  前后一定要有空格 ,逗号表示或
-3. min或者max一定要带括号
+@media + 媒体名字 +{特定媒体下的CSS样式},可以实现特定媒体下展示特殊的CSS样式
+```html
+@media tv{
+	#box{
+		width:200px;
+		height:200px;
+		background:red;
+	}
+}
+
+```
+2. and是关键字，用来连接媒体类型和媒体特性。
+and: 和,与。用来连接媒体设备和媒体特性。
+not: 排除指定媒体类型。
+only:指定某种特定的媒体类型。
+
+```html
+ @media tv and (max-width:400px){
+      #box{
+        width:375px;
+        height:200px;
+        background: green;
+      }
+ }
+
+```
+表示：只有在既是tv设备同时宽度小于等于400px的情况下，展示的样式。
+3. min或者max一定要带括号,其实是媒体特性一定要加括号
 4. 通常你应该在你的媒体查询中总是使用min-或者max-前缀。
+   常见的媒体特性：
+			 min-width:宽度大于设置值时进行识别
+			 max-width:宽度小于设置值时进行识别
+			 orientation:portrait         竖屏
+			 orientation:landscape        横屏
+			 -webkit-min-device-pixel-ratio:1.5  像素比为2
+	```html
+		@media (orientation:landscape){
+				#box{
+					width:200px;
+					height:200px;
+					background:green;
+				}
+		}
+	```		 
 5. width:600px 一定要带有单位。媒体查询的单位通常是像素，
+
+**注意：媒体类型和媒体特性都可以单独使用，并不一定需要同时使用，他们只不过是CSS判断的条件罢了。**
+
+
 
 ### CSS样式
 

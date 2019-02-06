@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>媒体查询</title>
+  <meta name="viewport" content = 'width = device-width,initial-scale=1.0'>
+  <style>
+    * {margin: 0;padding: 0}
+  </style>
+  <style>
+
+
+    @media all and (max-width:400px){
+      #box{
+        width:375px;
+        height:200px;
+        background: green;
+      }
+    }
+    @media all and (max-width:600px){
+      #box{
+        width:375px;
+        height:200px;
+        background: red;
+      }
+    }
+    /*
+     *  关键字：用来连接媒体设备和媒体特性
+     *      and: 和,与。用来连接媒体设备和媒体特性。
+     *      not: 排除指定媒体类型。
+     *      only:指定某种特定的媒体类型。
+     * 
+     * 
+     * */
+  </style>
+  
+  
+</head>
+<body>
+<div id="box">媒体查询</div>
+</body>
+</html>
+
