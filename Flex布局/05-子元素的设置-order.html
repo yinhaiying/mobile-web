@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伸缩性-flex</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			li{
+				list-style:none;
+			}
+			.box{
+				width:400px;
+				height:400px;
+			    display:flex;
+			    /*设置主轴方向*/
+			   flex-direction:row;
+			   
+			   /*设置侧轴排列*/
+			  align-items:flex-start;
+			}
+			.box>li{
+				width:50px;
+				height:50px;
+				background:red;
+				border:1px solid green;
+			}
+			.box li:nth-of-type(1){
+				flex:1;
+			}
+			.box li:nth-of-type(2){
+				flex:2;
+			}
+			.box li:nth-of-type(3){
+				flex:3;
+			}
+			.box li:nth-of-type(4){
+				flex:5;
+			}
+			.box li:nth-of-type(5){
+				flex:4;
+			}
+			.box li:nth-of-type(6){
+				flex:6;
+			}
+			.box li:nth-of-type(7){
+				flex:7;
+			}
+			.box li:nth-of-type(8){
+				flex:8;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+	</body>
+</html>

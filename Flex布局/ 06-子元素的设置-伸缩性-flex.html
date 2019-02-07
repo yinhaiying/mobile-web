@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置主轴</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			li{
+				list-style:none;
+			}
+			.box{
+				width:400px;
+				height:400px;
+			    display:flex;
+			    /*设置主轴方向*/
+			   flex-direction:row;
+			   
+			   /*设置侧轴排列*/
+			  align-items:flex-start;
+			}
+			.box>li{
+				width:50px;
+				height:50px;
+				background:red;
+				border:1px solid green;
+			}
+			.box li:nth-of-type(1){
+				align-self:flex-start;
+			}
+			.box li:nth-of-type(2){
+				align-self:center;
+			}
+			.box li:nth-of-type(3){
+				align-self:end;
+			}
+			.box li:nth-of-type(4){
+				align-self:center;
+			}
+			.box li:nth-of-type(5){
+				align-self:flex-start;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			
+		</ul>
+	</body>
+</html>
